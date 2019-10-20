@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import NavBar from './components/navbar';
+import MainSearch from './components/mainSearch';
+import MarketItem from './components/marketItem'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar></NavBar>
+      <MainSearch></MainSearch>
+      <MarketItem  title="Test Vlvo" price="1000" location="Osby"></MarketItem>
+      <MarketItem  title="V70 något annat" price="500" location="BHästveda"></MarketItem>
+      <MarketItem  title="alpha-strålning" price="1" location="skitveda"></MarketItem>
+
     </div>
   );
 }

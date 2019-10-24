@@ -24,7 +24,7 @@ export default class MarketItem extends React.Component{
     <Card className={this.classes.card} style={{width: 400, height: 108, display: "inline-block", margin: 10}}>
         <CardContent style={{margin: 0, padding: 0}}>
         <div className="imageDiv" style={{height: "100%", width: 192, padding: 0, margin: 0, display: "inline-block", float: "left"}}>
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftveassetsprod.blob.core.windows.net%2Feditorial%2Fimport%2Fimages%2Fglobal%2Fnyheter%2F2014%2F05%2F09%2Fblocket-annons-volvo-245-gl-1993.jpg&f=1&nofb=1" height="108" width="192" style={{margin: 0, padding: 0}}></img>
+            <img src="https://www.blocket.se/img/hub/logobyte_logo_310x200@2x.png" height="108" width="192" style={{margin: 0, padding: 0}}></img>
         </div>
         <div style={{display: "inline-block"}}>
             <h3 style={{marginTop: 5, marginBottom: 0}}>{this.state.title}</h3>

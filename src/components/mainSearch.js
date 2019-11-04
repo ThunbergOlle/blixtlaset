@@ -20,7 +20,9 @@ export default class MainSearch extends React.Component{
     changeArea = (event) => { 
         console.log("Selected: " + event);
         this.setState({area: event.target.value});
-
+    }
+    sendApiRequest(){
+        
     }
     render(){
         return (

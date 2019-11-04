@@ -23,7 +23,7 @@ export default class MarketItem extends React.Component{
     render(){
 
         return(
-    <Card className={this.classes.card} style={{width: 400, height: 108, display: "inline-block", cursor: "pointer", margin: 10, position: "relative"}} onClick={() => {window.open(this.state.link, '_blank')}}>
+    <Card className={this.classes.card} style={{width: 600, height: 108, display: "inline-block", cursor: "pointer", margin: 10, position: "relative"}} onClick={() => {window.open(this.state.link, '_blank')}}>
         <CardContent style={{margin: 0, padding: 0}}>
         <div className="imageDiv" style={{height: "100%", width: 96, padding: 0, margin: 0, display: "inline-block", float: "left", textAlign: "center", alignContent:"center"}}>
             <img src={this.state.image} height="54" width="96" style={{padding: 0, marginTop: 25, marginLeft: 20}}></img>

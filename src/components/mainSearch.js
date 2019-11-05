@@ -1,14 +1,19 @@
 import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
+import ReactDOM from 'react-dom';
+import GetMarketListings from "./getMarketListings";
 import { MenuItem, Button, Select, TextField, Grid, Divider, InputLabel, FormControl } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-
+const api = require('./apiHandler');
 export default class MainSearch extends React.Component{
     constructor(props){
         super(props);
         this.state = {
             sale: "alla",
-            area: "helasverige"
+            area: "helasverige",
+            search: "",
+            blocketIn: undefined,
+            traderaIn: undefined
         }
         this.classes = useStyles;
      }  
@@ -21,16 +26,33 @@ export default class MainSearch extends React.Component{
         console.log("Selected: " + event);
         this.setState({area: event.target.value});
     }
-    sendApiRequest(){
-        
+    changeSearchWord = (event) => { 
+
+        this.setState({search: event.target.value});
+    }
+    async sendApiRequest(){
+        console.log(`Sending api request for search term ${this.state.search}`);
+        let data = await api.Search(this.state.search, this.state.area);
+        if(data === undefined){
+            console.log("We did not get a response from the server.");
+            return;
+        }else {    
+            ReactDOM.render(
+                <GetMarketListings blocket={data.blocket} tradera={data.tradera} />, document.getElementById("items")
+
+            )
+            console.log("Set the state of items");
+        }
+
     }
     render(){
+
         return (
             <form className={this.classes.container} noValidate autoComplete="off">
-    
+                
                 <div style={{ width: "50%", margin: "2% auto" }} color="inherit">
-    
                     <Grid container spacing={3}>
+                        
                         <Grid item xs={10}>
                             <TextField
                                 id="outlined-helperText"
@@ -40,12 +62,13 @@ export default class MainSearch extends React.Component{
                                 margin="normal"
                                 variant="outlined"
                                 fullWidth
+                                onChange={this.changeSearchWord.bind(this)}
                             />
                         </Grid>
                         <Grid item xs={2}>
                             <div style={{ margin: "2% auto", align: "center", marginTop: 26 }}>
-                                <Button variant="contained" color="primary" className={this.classes.button}>
-                                    <SearchIcon />
+                                <Button variant="contained" className={this.classes.button} style={{backgroundColor: "#507B00"}} onClick={() => {this.sendApiRequest()}}>
+                                        <SearchIcon className={this.classes.searchIcon} color="inherit" style={{color: "white"}}/>
                                 </Button>
                             </div>
                         </Grid>
@@ -87,11 +110,12 @@ export default class MainSearch extends React.Component{
                             </FormControl>
                         </Grid>
 
-                        <Grid item xs={12}>
+                        <Grid item xs={12}> 
                             <Divider />
                         </Grid>
                     </Grid>
                 </div>
+                
             </form>
         )
     }
@@ -105,6 +129,9 @@ const useStyles = makeStyles(theme => ({
     },
     textField: {
         color: "white"
+    },
+    searchIcon: {
+        color: "inherit",
     },
     dense: {
         marginTop: theme.spacing(2),
@@ -120,6 +147,8 @@ const useStyles = makeStyles(theme => ({
     button: {
         margin: "2% auto",
         float: "left",
-        marginTop: 22
+        marginTop: 22,
+        backgroundColor: "#507B00",
+        color: "#507B00"
     },
 }));

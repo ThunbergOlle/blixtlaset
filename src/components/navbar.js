@@ -10,8 +10,9 @@ function NavBar(props) {
             <CssBaseline />
             <AppBar position="static" elevation={0} className={classes.appBar}>
                 <Toolbar className={classes.toolbar}>
+                    
                     <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        BlixtLåset:)
+                        OnePlace
                 </Typography>
                 <div className={classes.search}>
                             <div className={classes.searchIcon}>
@@ -53,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     },
     appBar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
-        backgroundColor: "#1976d2",
+        backgroundColor: "#507B00",
     },
     toolbar: {
         flexWrap: 'wrap',

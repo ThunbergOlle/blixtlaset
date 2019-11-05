@@ -8,11 +8,12 @@ import GetMarketListings from './components/getMarketListings';
 function App() {
   
   return (
-    <div className="App">
+    <div className="App" id="app">
       <NavBar></NavBar>
       <MainSearch></MainSearch>
-      <GetMarketListings></GetMarketListings>
-
+      <div id="items">
+        <p>(Sök resultat kommer visas här, det ska vara filter just nu men har ej lagt till :])</p>
+      </div>
     </div>
   );
 }

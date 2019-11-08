@@ -12,7 +12,7 @@ function NavBar(props) {
                 <Toolbar className={classes.toolbar}>
                     
                     <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        <img src="https://i.imgur.com/4L2LaHv.png"></img>
+                        <img src="https://i.imgur.com/4L2LaHv.png" alt="logo"></img>
                 </Typography>
                 <div className={classes.search}>
                             <div className={classes.searchIcon}>
@@ -54,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     },
     appBar: {
         borderBottom: `1px solid ${theme.palette.divider}`,
-        backgroundColor: "#74D14C",
+        backgroundColor: "#339933",
     },
     toolbar: {
         flexWrap: 'wrap',

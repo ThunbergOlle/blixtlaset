@@ -3,6 +3,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ReactDOM from 'react-dom';
 import GetMarketListings from "./getMarketListings";
 import { MenuItem, Button, Select, TextField, Grid, Divider, InputLabel, FormControl } from "@material-ui/core";
+import Category from './categoryCard';
 import { makeStyles } from '@material-ui/core/styles';
 const api = require('./apiHandler');
 export default class MainSearch extends React.Component{
@@ -13,7 +14,9 @@ export default class MainSearch extends React.Component{
             area: "helasverige",
             search: "",
             blocketIn: undefined,
-            traderaIn: undefined
+            traderaIn: undefined,
+            filters: [],
+            selectedCategory: undefined
         }
         this.classes = useStyles;
      }  
@@ -72,7 +75,15 @@ export default class MainSearch extends React.Component{
                                 </Button>
                             </div>
                         </Grid>
+                        <Grid item xs={12}>
+                            <Category></Category>
+                            <Category></Category>
+                            <Category></Category>
+                            <Category></Category>
+                            <Category></Category>
+                            <Category></Category>
 
+                        </Grid>
                         <Grid item xs={2}>
                         <FormControl className={this.classes.formControl}>
 
@@ -92,7 +103,7 @@ export default class MainSearch extends React.Component{
                             </FormControl>
 
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={4}>  
                         <FormControl className={this.classes.formControl}>
                         <InputLabel htmlFor="area">Område</InputLabel>
 

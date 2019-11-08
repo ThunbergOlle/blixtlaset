@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, Typography, CardMedia, CardContent, CardActionArea, Button, CardActions} from '@material-ui/core';
+import {Card, CardContent} from '@material-ui/core';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 
@@ -26,10 +26,10 @@ export default class MarketItem extends React.Component{
     <Card className={this.classes.card} style={{width: 600, height: 108, display: "inline-block", cursor: "pointer", margin: 10, position: "relative"}} onClick={() => {window.open(this.state.link, '_blank')}}>
         <CardContent style={{margin: 0, padding: 0}}>
         <div className="imageDiv" style={{height: "100%", width: 96, padding: 0, margin: 0, display: "inline-block", float: "left", textAlign: "center", alignContent:"center"}}>
-            <img src={this.state.image} height="108" width="192" style={{padding: 0}}></img>
+            <img src={this.state.image} alt="item" height="108" width="192" style={{padding: 0}}></img>
         </div>
         <div style={{position: "absolute", bottom: 5, right: 5}}>
-           <img src={this.state.company} height="25"></img>
+           <img src={this.state.company} alt="company" height="25"></img>
         </div>
         <div style={{display: "inline-block"}}>
             <p style={{marginTop: 5, marginBottom: 0}}><em>{this.state.location}</em></p>

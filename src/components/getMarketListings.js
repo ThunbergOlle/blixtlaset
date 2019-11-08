@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from 'react';
 import MarketItem from "./marketItem";
 export default class GetMarketListings extends React.Component{

@@ -2,9 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from './components/navbar';
 import MainSearch from './components/mainSearch';
-import MarketItem from './components/marketItem';
-import GetMarketListings from './components/getMarketListings';
-
+import './components/category.module.css';
 function App() {
   
   return (

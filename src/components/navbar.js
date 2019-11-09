@@ -16,8 +16,6 @@ const [anchorEl, setAnchorEl] = React.useState(null);
     setAnchorEl(null);
     };
     const classes = useStyles(); 
-    const isMobile = window.innerWidth <= 500;
-    if(isMobile){
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -57,37 +55,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
                 </AppBar>
             </React.Fragment>
         )
-    }else {
-        return (
-            <React.Fragment>
-                <CssBaseline />
-                <AppBar position="static" elevation={0} className={classes.appBar}>
-                    <Toolbar className={classes.toolbar}>
-                        
-                        <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                            <img src="https://i.imgur.com/4L2LaHv.png" alt="logo"></img>
-                    </Typography>
-                    <div className={classes.search}>
-                                <div className={classes.searchIcon}>
-                                    <SearchIcon />
-                                </div>
-                            </div>
-                        <nav>
     
-                            <Link variant="button" color="inherit" href="#" className={classes.link}>
-                                Skapa konto
-                        </Link>
-                        <Link variant="button" color="inherit" href="#" className={classes.link}>
-                                Logga in
-                        </Link>
-                        </nav>
-                       
-    
-                    </Toolbar>
-                </AppBar>
-            </React.Fragment>
-        )
-    }
     
 }
 const useStyles = makeStyles(theme => ({

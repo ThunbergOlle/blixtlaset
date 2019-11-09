@@ -5,7 +5,7 @@ import GetMarketListings from "./getMarketListings";
 import { MenuItem, Button, Select, TextField, Grid, Divider, InputLabel, FormControl } from "@material-ui/core";
 import Category from './categoryCard';
 import { makeStyles } from '@material-ui/core/styles';
-const api = require('./apiHandler');
+const api = require('./api/apiHandler');
 export default class MainSearch extends React.Component{
     constructor(props){
         super(props);
@@ -16,17 +16,19 @@ export default class MainSearch extends React.Component{
             blocketIn: undefined,
             traderaIn: undefined,
             filters: [],
-            selectedCategory: undefined
+            selectedCategory: "undefined"
         }
         this.classes = useStyles;
      }  
+    onChangeCategory(category){
+        this.setState({selectedCategory: category});
+    }
     changeSale = (event) => { 
         console.log("Selected: " + event);
         this.setState({sale: event.target.value});
 
     }
     changeArea = (event) => { 
-        console.log("Selected: " + event);
         this.setState({area: event.target.value});
     }
     changeSearchWord = (event) => { 
@@ -52,7 +54,7 @@ export default class MainSearch extends React.Component{
 
         return (
             <form className={this.classes.container} noValidate autoComplete="off">
-                
+                <p>{this.state.selectedCategory}</p>
                 <div style={{ width: "50%", margin: "2% auto" }} color="inherit">
                     <Grid container spacing={3}>
                         
@@ -76,13 +78,13 @@ export default class MainSearch extends React.Component{
                             </div>
                         </Grid>
                         <Grid item xs={12}>
-                            <Category></Category>
-                            <Category></Category>
-                            <Category></Category>
-                            <Category></Category>
-                            <Category></Category>
-                            <Category></Category>
-
+                            <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1153/1153054.svg" category="leksaker" categoryName="Leksaker"></Category>
+                            <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/296/296216.svg" category="fordon" categoryName="Fordon"></Category>
+                            <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2242/2242296.svg" category="heminredning" categoryName="Inredning"></Category>
+                            <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1169/1169382.svg" category="kläder" categoryName="Kläder"></Category>
+                            <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/897/897066.svg" category="elektronik" categoryName="Elektronik"></Category>
+                            <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2210/2210649.svg" category="fritid" categoryName="Fritid"></Category>
+                            <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1530/1530970.svg" category="konst" categoryName="Konst"></Category>
                         </Grid>
                         <Grid item xs={2}>
                         <FormControl className={this.classes.formControl}>

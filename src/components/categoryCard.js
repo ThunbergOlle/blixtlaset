@@ -4,16 +4,21 @@ export default class Category extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-
+            categoryLink: this.props.category,
+            image: this.props.image
         }
 
     }
-    
+    onChangeLink(){
+        this.props.changeLink(this.state.categoryLink);
+    }
     render(){
-        if(this.state.category) console.log("CATEGORY SET");
         return(
-           <div style={{width: 100, height: 100, outline:" #4CAF50 solid 2px", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)", cursor: "pointer", display: "inline-block", margin: 5}} onClick={() => {this.setState({category: "test"})}}>
-               <img src="https://i.imgur.com/5LoGbt3.png" alt="leksaker" width="100%" height="100%"></img>
+           <div style={{width: 70, height: 70, cursor: "pointer", borderRadius: "200px", display: "inline-block", backgroundColor: "#DCDCDC", margin: 5}} onClick={this.onChangeLink.bind(this)}>
+               <div style={{margin: "2% auto", marginTop: "15%"}}>
+                <img src={this.state.image} alt="leksaker" style={{maxWidth: "70%", maxHeight: "70%"}}></img>
+                <p>{this.props.categoryName}</p>
+               </div>
            </div> 
         )
     }

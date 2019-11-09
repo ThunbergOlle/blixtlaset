@@ -1,6 +1,5 @@
 import React from 'react';
 import {Card, CardContent} from '@material-ui/core';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 
 
 export default class MarketItem extends React.Component{
@@ -15,10 +14,6 @@ export default class MarketItem extends React.Component{
             link: this.props.link
         }
         
-        this.classes = useStyles;
-        this.theme = useTheme;
-        this.bull = <span className={this.classes.bullet}>•</span>;
-
     }
     render(){
         
@@ -42,8 +37,3 @@ export default class MarketItem extends React.Component{
         )
     }
 }
-const useStyles = makeStyles({
-    card: {
-      minWidth: 275,
-    },
-  });

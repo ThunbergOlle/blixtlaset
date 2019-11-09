@@ -2,45 +2,93 @@ import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { CssBaseline, AppBar, Toolbar, Typography, Link, InputBase } from '@material-ui/core';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+function NavBar(props){
+const [anchorEl, setAnchorEl] = React.useState(null);
 
-function NavBar(props) { 
+    const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+    setAnchorEl(null);
+    };
     const classes = useStyles(); 
-    return (
-        <React.Fragment>
-            <CssBaseline />
-            <AppBar position="static" elevation={0} className={classes.appBar}>
-                <Toolbar className={classes.toolbar}>
-                    
-                    <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-                        <img src="https://i.imgur.com/4L2LaHv.png" alt="logo"></img>
-                </Typography>
-                <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <SearchIcon />
+    const isMobile = window.innerWidth <= 500;
+    if(isMobile){
+        return (
+            <React.Fragment>
+                <CssBaseline />
+                <AppBar position="static" elevation={0} className={classes.appBar}>
+                    <Toolbar className={classes.toolbar}>
+                        
+                        <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+                            <img src="https://i.imgur.com/4L2LaHv.png" alt="logo"></img>
+                    </Typography>
+                    <div className={classes.search}>
+                                <div className={classes.searchIcon}>
+                                    <SearchIcon />
+                                </div>
+                                <InputBase
+                                    placeholder="Sök efter annons"
+                                    classes={{
+                                        root: classes.inputRoot,
+                                        input: classes.inputInput,
+                                    }}
+                                    inputProps={{ 'aria-label': 'search' }}
+                                />
+                            </div> 
+                                          
+                            <AccountCircleIcon aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}/>
+                            <Menu
+                            id="login-menu"
+                            anchorEl={anchorEl}
+                            keepMounted
+                            open={Boolean(anchorEl)}
+                            onClose={handleClose}
+                        >
+                            <MenuItem onClick={handleClose}>Logga in</MenuItem>
+                            <MenuItem onClick={handleClose}>Skapa konto</MenuItem>
+                        </Menu>
+    
+                    </Toolbar>
+                </AppBar>
+            </React.Fragment>
+        )
+    }else {
+        return (
+            <React.Fragment>
+                <CssBaseline />
+                <AppBar position="static" elevation={0} className={classes.appBar}>
+                    <Toolbar className={classes.toolbar}>
+                        
+                        <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
+                            <img src="https://i.imgur.com/4L2LaHv.png" alt="logo"></img>
+                    </Typography>
+                    <div className={classes.search}>
+                                <div className={classes.searchIcon}>
+                                    <SearchIcon />
+                                </div>
                             </div>
-                            <InputBase
-                                placeholder="Sök efter annons"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                inputProps={{ 'aria-label': 'search' }}
-                            />
-                        </div>
-                    <nav>
+                        <nav>
+    
+                            <Link variant="button" color="inherit" href="#" className={classes.link}>
+                                Skapa konto
+                        </Link>
                         <Link variant="button" color="inherit" href="#" className={classes.link}>
-                            Skapa konto
-                    </Link>
-                    <Link variant="button" color="inherit" href="#" className={classes.link}>
-                            Logga in
-                    </Link>
-                    </nav>
-                   
-
-                </Toolbar>
-            </AppBar>
-        </React.Fragment>
-    )
+                                Logga in
+                        </Link>
+                        </nav>
+                       
+    
+                    </Toolbar>
+                </AppBar>
+            </React.Fragment>
+        )
+    }
+    
 }
 const useStyles = makeStyles(theme => ({
     '@global': {  
@@ -65,6 +113,10 @@ const useStyles = makeStyles(theme => ({
     },
     link: {
         margin: theme.spacing(1, 1.5),
+        [theme.breakpoints.up('sm')]: {
+            width: 'auto',
+            display: 'inline-block'
+        },
     },
     heroContent: {
         padding: theme.spacing(8, 0, 6),
@@ -75,6 +127,7 @@ const useStyles = makeStyles(theme => ({
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
+        display: "none",
         backgroundColor: fade(theme.palette.common.white, 0.15),
         '&:hover': {
             backgroundColor: fade(theme.palette.common.white, 0.25),
@@ -85,6 +138,7 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(3),
             width: 'auto',
+            display: 'inline-block'
         },
     },
     searchIcon: {

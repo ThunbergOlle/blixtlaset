@@ -7,7 +7,7 @@ import Category from './categoryCard';
 import AreaFilter from './filters/areaFilter';
 
 const api = require('./api/apiHandler');
-export default class MainSearch extends React.Component{
+class MainSearch extends React.Component{
     constructor(props){
         super(props);
         this.state = {
@@ -51,13 +51,15 @@ export default class MainSearch extends React.Component{
 
     }
     render(){
-
+        const isMobile = window.innerWidth <= 500;
+        console.log(isMobile);
         return (
             <form 
             noValidate autoComplete="off">
                 <p>{this.state.selectedCategory}</p>
                 <p>{this.state.area}</p>
-                <div style={{ width: "50%", margin: "2% auto"}} color="inherit">
+                
+                <div style={!isMobile && { width: "50%", margin: "2% auto"}, isMobile &&{ width: "80%", margin: "2% auto"}} color="inherit" className="searchIcon">
                     <Grid container spacing={3}>
                         
                         <Grid item xs={10}>
@@ -99,3 +101,4 @@ export default class MainSearch extends React.Component{
     }
    
 }
+export default MainSearch;

@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import GetMarketListings from "./getMarketListings";
 import { MenuItem, Button, Select, TextField, Grid, Divider, InputLabel, FormControl } from "@material-ui/core";
 import Category from './categoryCard';
-import { makeStyles } from '@material-ui/core/styles';
+import AreaFilter from './filters/areaFilter';
+
 const api = require('./api/apiHandler');
 export default class MainSearch extends React.Component{
     constructor(props){
@@ -18,7 +19,6 @@ export default class MainSearch extends React.Component{
             filters: [],
             selectedCategory: "undefined"
         }
-        this.classes = useStyles;
      }  
     onChangeCategory(category){
         this.setState({selectedCategory: category});
@@ -28,8 +28,8 @@ export default class MainSearch extends React.Component{
         this.setState({sale: event.target.value});
 
     }
-    changeArea = (event) => { 
-        this.setState({area: event.target.value});
+    onChangeArea(area) { 
+        this.setState({area: area});
     }
     changeSearchWord = (event) => { 
 
@@ -53,27 +53,28 @@ export default class MainSearch extends React.Component{
     render(){
 
         return (
-            <form className={this.classes.container} noValidate autoComplete="off">
+            <form 
+            noValidate autoComplete="off">
                 <p>{this.state.selectedCategory}</p>
-                <div style={{ width: "50%", margin: "2% auto" }} color="inherit">
+                <p>{this.state.area}</p>
+                <div style={{ width: "50%", margin: "2% auto"}} color="inherit">
                     <Grid container spacing={3}>
                         
                         <Grid item xs={10}>
                             <TextField
                                 id="outlined-helperText"
                                 label="Produktens namn"
-                                className={this.classes.textField}
+                                
                                 helperText="Sökningen sker på flera hemsidor för att leta efter passande annonser"
                                 margin="normal"
                                 variant="outlined"
-                                fullWidth
                                 onChange={this.changeSearchWord.bind(this)}
                             />
                         </Grid>
                         <Grid item xs={2}>
                             <div style={{ margin: "2% auto", align: "center", marginTop: 26 }}>
-                                <Button variant="contained" className={this.classes.button} style={{backgroundColor: "#507B00"}} onClick={() => {this.sendApiRequest()}}>
-                                        <SearchIcon className={this.classes.searchIcon} color="inherit" style={{color: "white"}}/>
+                                <Button variant="contained" style={{backgroundColor: "#507B00"}} onClick={() => {this.sendApiRequest()}}>
+                                        <SearchIcon color="inherit" style={{color: "white"}}/>
                                 </Button>
                             </div>
                         </Grid>
@@ -86,44 +87,8 @@ export default class MainSearch extends React.Component{
                             <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2210/2210649.svg" category="fritid" categoryName="Fritid"></Category>
                             <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1530/1530970.svg" category="konst" categoryName="Konst"></Category>
                         </Grid>
-                        <Grid item xs={2}>
-                        <FormControl className={this.classes.formControl}>
-
-                            <InputLabel htmlFor="typ">Försäljningstyp</InputLabel>
-                            <Select
-                                className={this.classes.selectAll}
-                                onChange={this.changeSale.bind(this)}
-                                value={this.state.sale}
-                                style={{width: 150}}
-                                id="typ"
-                            >
-                                
-                                <MenuItem value="alla">Alla</MenuItem>
-                                <MenuItem value="budgivning">Endast budgivning</MenuItem>
-                                <MenuItem value="direktforsaljning">Endast direktförsäljning</MenuItem>
-                            </Select>
-                            </FormControl>
-
-                        </Grid>
-                        <Grid item xs={4}>  
-                        <FormControl className={this.classes.formControl}>
-                        <InputLabel htmlFor="area">Område</InputLabel>
-
-                        <Select
-                                className={this.classes.selectAll}
-                                onChange={this.changeArea.bind(this)}
-                                value={this.state.area}
-                                style={{width: 150}}
-                                id="area"
-                            >
-                                <MenuItem value="helasverige">Hela Sverige</MenuItem>
-                                <MenuItem value="skane">Skåne</MenuItem>
-                                <MenuItem value="halland">Halland</MenuItem>
-                            </Select>
-                            </FormControl>
-                        </Grid>
-
-                        <Grid item xs={12}> 
+                        <AreaFilter changeArea={this.onChangeArea.bind(this)}/>
+                        <Grid item xs={12} style={{textAlign: "center", alignSelf:"center"}}> 
                             <Divider />
                         </Grid>
                     </Grid>
@@ -134,34 +99,3 @@ export default class MainSearch extends React.Component{
     }
    
 }
-
-const useStyles = makeStyles(theme => ({
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-    },
-    textField: {
-        color: "white"
-    },
-    searchIcon: {
-        color: "inherit",
-    },
-    dense: {
-        marginTop: theme.spacing(2),
-    },
-    selectAll: {
-        width: 200,
-        height: 200,
-        minWidth: 200
-    },
-    menu: {
-        width: 200,
-    },
-    button: {
-        margin: "2% auto",
-        float: "left",
-        marginTop: 22,
-        backgroundColor: "#507B00",
-        color: "#507B00"
-    },
-}));

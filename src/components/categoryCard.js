@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './category.module.css';
 export default class Category extends React.Component{
     constructor(props){
         super(props)

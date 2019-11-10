@@ -3,6 +3,7 @@
 }
 body{
   height: 100%;
+  background-color: red;
 }
 .App-logo {
   height: 40vmin;

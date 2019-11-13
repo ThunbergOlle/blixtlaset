@@ -19,7 +19,7 @@ export default class AreaFilter extends React.Component {
         return (
 
             <FormControl style={{textAlign: "center", display: "inline-block"}}>
-                <InputLabel htmlFor="area">Område</InputLabel>
+                <InputLabel htmlFor="area">Län</InputLabel>
 
                 <Select
                     className={this.classes.selectAll}

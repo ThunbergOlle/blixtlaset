@@ -84,13 +84,13 @@ class MainSearch extends React.Component {
                             </Grid>
                             {!category() &&
                             <Grid item xs={12}>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1153/1153054.svg" category="leksaker" categoryName="Leksaker"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/296/296216.svg" category="fordon" categoryName="Fordon"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2242/2242296.svg" category="heminredning" categoryName="Inredning"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/135/135077.svg" category="leksaker" categoryName="Leksaker"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/173/173231.svg" category="fordon" categoryName="Fordon"></Category>
                                 <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1169/1169382.svg" category="kläder" categoryName="Kläder"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/897/897066.svg" category="elektronik" categoryName="Elektronik"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/222/222545.svg" category="elektronik" categoryName="Elektronik"></Category>
                                 <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2210/2210649.svg" category="fritid" categoryName="Fritid"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1530/1530970.svg" category="konst" categoryName="Konst"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1111/1111553.svg" category="heminredning" categoryName="Inredning"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2071/2071474.svg" category="konst" categoryName="Konst"></Category>
                             </Grid>
                             }
                             <AreaFilter changeArea={this.onChangeArea.bind(this)} />
@@ -131,13 +131,13 @@ class MainSearch extends React.Component {
                         </Grid>
                         {!category() &&
                             <Grid item xs={12}>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1153/1153054.svg" category="Leksaker" categoryName="Leksaker"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/296/296216.svg" category="Fordon" categoryName="Fordon"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2242/2242296.svg" category="Heminredning" categoryName="Inredning"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/135/135077.svg" category="Leksaker" categoryName="Leksaker"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/173/173231.svg" category="Fordon" categoryName="Fordon"></Category>
                                 <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1169/1169382.svg" category="Kläder" categoryName="Kläder"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/897/897066.svg" category="Elektronik" categoryName="Elektronik"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/222/222545.svg" category="Elektronik" categoryName="Elektronik"></Category>
                                 <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2210/2210649.svg" category="Fritid" categoryName="Fritid"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1530/1530970.svg" category="Konst" categoryName="Konst"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1111/1111553.svg" category="Heminredning" categoryName="Inredning"></Category>
+                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2071/2071474.svg" category="Konst" categoryName="Konst"></Category>
                             </Grid>
                         }
                         <AreaFilter changeArea={this.onChangeArea.bind(this)} />

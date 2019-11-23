@@ -29,8 +29,31 @@ export default class AreaFilter extends React.Component {
                     id="area"
                 >
                     <MenuItem value="helasverige">Hela Sverige</MenuItem>
-                    <MenuItem value="skane">Skåne</MenuItem>
-                    <MenuItem value="halland">Halland</MenuItem>
+                    <MenuItem value="blekinge">Blekinge</MenuItem>
+                    <MenuItem value="dalarna">Dalarna</MenuItem>
+                    <MenuItem value="dalsland">Dalsland</MenuItem>
+                    <MenuItem value="Gotland">Gotland</MenuItem>
+                    <MenuItem value="Gastrikland">Gästrikland</MenuItem>
+                    <MenuItem value="Halland">Halland</MenuItem>
+                    <MenuItem value="Halsingland">Hälsingland</MenuItem>
+                    <MenuItem value="Harjedalen">Härjedalen</MenuItem>
+                    <MenuItem value="Jamtland">Jamtland</MenuItem>
+                    <MenuItem value="Lappland">Lappland</MenuItem>
+                    <MenuItem value="Medelpad">Medelpad</MenuItem>
+                    <MenuItem value="Norrbotten">Norrbotten</MenuItem>
+                    <MenuItem value="Narke">Närke</MenuItem>
+                    <MenuItem value="Skane">Skåne</MenuItem>
+                    <MenuItem value="Smaland">Småland</MenuItem>
+                    <MenuItem value="Sodermanland">Södermanland</MenuItem>
+                    <MenuItem value="Uppland">Uppland</MenuItem>
+                    <MenuItem value="Varmland">Värmland</MenuItem>
+                    <MenuItem value="Vasterbotten">Västerbotten</MenuItem>
+                    <MenuItem value="Vastergotland">Västergotland</MenuItem>
+                    <MenuItem value="Vastmanland">Västmanland</MenuItem>
+                    <MenuItem value="Angermanland">Ångermanland</MenuItem>
+                    <MenuItem value="oland">Öland</MenuItem>
+                    <MenuItem value="ostergotland">Östergötland</MenuItem>
+
                 </Select>
             </FormControl>
 

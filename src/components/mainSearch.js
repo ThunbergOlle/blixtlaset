@@ -33,7 +33,7 @@ class MainSearch extends React.Component {
     }
     async sendApiRequest() {
         console.log(`Sending api request for search term ${this.state.search}`);
-        let data = await api.Search(this.state.search, this.state.area);
+        let data = await api.Search(this.state.search, this.state.area, this.state.selectedCategory);
         if (data === undefined) {
             console.log("We did not get a response from the server.");
             return;
@@ -84,6 +84,7 @@ class MainSearch extends React.Component {
                             </Grid>
                             {!category() &&
                             <Grid item xs={12}>
+                                <h4 style={{margin: 0, padding: 0}}>Välj en kategori</h4>
                                 <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/135/135077.svg" category="leksaker" categoryName="Leksaker"></Category>
                                 <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/173/173231.svg" category="fordon" categoryName="Fordon"></Category>
                                 <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1169/1169382.svg" category="kläder" categoryName="Kläder"></Category>

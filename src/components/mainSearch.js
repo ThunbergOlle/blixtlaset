@@ -5,7 +5,7 @@ import GetMarketListings from "./getMarketListings";
 import { MenuItem, Button, Select, TextField, Grid, Divider, InputLabel, FormControl } from "@material-ui/core";
 import Category from './categoryCard';
 import AreaFilter from './filters/areaFilter';
-
+import ThumbnailFilter from './filters/ThumbnailsFilter';
 const api = require('./api/apiHandler');
 class MainSearch extends React.Component {
     constructor(props) {
@@ -13,6 +13,7 @@ class MainSearch extends React.Component {
         this.state = {
             sale: "alla",
             area: "helasverige",
+            thumbnailOnly: false,
             search: "",
             blocketIn: undefined,
             traderaIn: undefined,
@@ -26,6 +27,9 @@ class MainSearch extends React.Component {
     }
     onChangeArea(area) {
         this.setState({ area: area });
+    }
+    onChangeThumbnail(val) {
+        this.setState({ thumbnailOnly: val });
     }
     changeSearchWord = (event) => {
 
@@ -100,6 +104,7 @@ class MainSearch extends React.Component {
                                     <p>Något för subkategorier här</p>
                                 </Grid>
                             }
+                            <ThumbnailFilter changeThumbnail={this.onChangeThumbnail.bind(this)}/>
                             <AreaFilter changeArea={this.onChangeArea.bind(this)} />
                             <Grid item xs={12} style={{ textAlign: "center", alignSelf: "center" }}>
                                 <Divider />

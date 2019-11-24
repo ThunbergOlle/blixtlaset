@@ -18,7 +18,7 @@ class MainSearch extends React.Component {
             traderaIn: undefined,
             filters: [],
             selectedCategory: undefined,
-            
+
         }
     }
     onChangeCategory(category) {
@@ -67,7 +67,7 @@ class MainSearch extends React.Component {
                             <Grid item xs={10}>
                                 <TextField
                                     id="outlined-helperText"
-                                    label="Produktens namn"
+                                    label="Produktens namn 🔍"
                                     fullWidth
                                     helperText="Sökningen sker på flera hemsidor för att leta efter passande annonser"
                                     margin="normal"
@@ -83,16 +83,22 @@ class MainSearch extends React.Component {
                                 </div>
                             </Grid>
                             {!category() &&
-                            <Grid item xs={12}>
-                                <h4 style={{margin: 0, padding: 0}}>Välj en kategori</h4>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/135/135077.svg" category="leksaker" categoryName="Leksaker"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/173/173231.svg" category="fordon" categoryName="Fordon"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1169/1169382.svg" category="kläder" categoryName="Kläder"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/222/222545.svg" category="elektronik" categoryName="Elektronik"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2210/2210649.svg" category="fritid" categoryName="Fritid"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1111/1111553.svg" category="heminredning" categoryName="Inredning"></Category>
-                                <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2071/2071474.svg" category="konst" categoryName="Konst"></Category>
-                            </Grid>
+                                <Grid item xs={12}>
+                                    <h4 style={{ margin: 0, padding: 0 }}>Välj en kategori</h4>
+                                    <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/135/135077.svg" category="leksaker" categoryName="Leksaker"></Category>
+                                    <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/173/173231.svg" category="fordon" categoryName="Fordon"></Category>
+                                    <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1169/1169382.svg" category="kläder" categoryName="Kläder"></Category>
+                                    <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/222/222545.svg" category="elektronik" categoryName="Elektronik"></Category>
+                                    <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2210/2210649.svg" category="fritid" categoryName="Fritid"></Category>
+                                    <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1111/1111553.svg" category="heminredning" categoryName="Inredning"></Category>
+                                    <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2071/2071474.svg" category="konst" categoryName="Konst"></Category>
+                                </Grid>
+                            }
+                            {category() &&
+                                <Grid item xs={12} style={{textAlign: 'left'}}>
+                                    <a style={{color: 'green', fontSize: 16, textAlign: "left", cursor: "pointer"}} onClick={() => this.setState({selectedCategory: undefined})}>Tillbaka</a>
+                                    <p>Något för subkategorier här</p>
+                                </Grid>
                             }
                             <AreaFilter changeArea={this.onChangeArea.bind(this)} />
                             <Grid item xs={12} style={{ textAlign: "center", alignSelf: "center" }}>
@@ -115,7 +121,7 @@ class MainSearch extends React.Component {
                         <Grid item xs={10}>
                             <TextField
                                 id="outlined-helperText"
-                                label="Produktens namn"
+                                label="Produktens namn 🔍"
 
                                 helperText="Sökningen sker på flera hemsidor för att leta efter passande annonser"
                                 margin="normal"
@@ -125,7 +131,7 @@ class MainSearch extends React.Component {
                         </Grid>
                         <Grid item xs={2}>
                             <div style={{ margin: "2% auto", align: "center", marginTop: 26 }}>
-                                <Button variant="contained" style={{ backgroundColor: "#507B00" }} onClick={() => { this.sendApiRequest() }}>
+                                <Button variant="contained" style={{ backgroundColor: "#507B00" }} onClick={() => { this.sendApiRequest() }} onTouchEnd={() => { this.sendApiRequest() }}>
                                     <SearchIcon color="inherit" style={{ color: "white" }} />
                                 </Button>
                             </div>

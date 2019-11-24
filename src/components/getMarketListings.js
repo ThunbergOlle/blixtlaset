@@ -15,7 +15,7 @@ export default class GetMarketListings extends React.Component{
         if(this.state.tradera !== undefined){
             return(<div>
                 {this.state.blocket.map(item => (<MarketItem  title={item.title} price={item.price} location="not set yet" image={item.image} company="https://i.imgur.com/IcUn5Jr.png" link={item.link}></MarketItem>))}
-                {this.state.tradera.map(item => (<MarketItem  title={item.title} price={item.price} location="not set yet" image={item.image} company='https://i.imgur.com/y7yj6aD.png' link={item.link}></MarketItem>))}        
+                {this.state.tradera.map(item => (<MarketItem  title={item.title} price="Budgivning" location="not set yet" image={item.image} company='https://i.imgur.com/y7yj6aD.png' link={item.link}></MarketItem>))}        
             </div>);
         }else {
             return(<p>Unable to get the items for you</p>)

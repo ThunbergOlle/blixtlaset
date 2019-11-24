@@ -4,18 +4,16 @@ export default class GetMarketListings extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            blocket: this.props.blocket,
-            tradera: this.props.tradera,
+            data: this.props.data,
         }
         
     }
     
     render(){
-        console.log(this.state.tradera);
-        if(this.state.tradera !== undefined){
+        console.log(this.state.data);
+        if(this.state.data !== undefined){
             return(<div>
-                {this.state.blocket.map(item => (<MarketItem  title={item.title} price={item.price} location="not set yet" image={item.image} company="https://i.imgur.com/IcUn5Jr.png" link={item.link}></MarketItem>))}
-                {this.state.tradera.map(item => (<MarketItem  title={item.title} price="Budgivning" location="not set yet" image={item.image} company='https://i.imgur.com/y7yj6aD.png' link={item.link}></MarketItem>))}        
+                {this.state.data.map(item => (<MarketItem  title={item.title} price={item.price} location="not set yet" image={item.image} company={item.source} link={item.link}></MarketItem>))}
             </div>);
         }else {
             return(<p>Unable to get the items for you</p>)
@@ -23,3 +21,4 @@ export default class GetMarketListings extends React.Component{
 
     }
 }
+//                {this.state.tradera.map(item => (<MarketItem  title={item.title} price="Budgivning" location="not set yet" image={item.image} company='https://i.imgur.com/y7yj6aD.png' link={item.link}></MarketItem>))}        

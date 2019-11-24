@@ -1,7 +1,7 @@
 import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { CssBaseline, AppBar, Toolbar, Typography, Link, InputBase } from '@material-ui/core';
+import { CssBaseline, AppBar, Toolbar, Typography, InputBase } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';

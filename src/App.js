@@ -15,7 +15,7 @@ function App() {
       <NavBar></NavBar>
       <MainSearch></MainSearch>
       <div id="items">
-        <h1 style={{fontWeight: '50'}}>Trendande just nu 🔥</h1>
+        <h1 style ={{fontWeight: '50'}}>Trendande just nu 🔥</h1>
       <FeaturedListings title="iPhone X Begagnad 64gb" image="https://tech-news.websawa.com/wp-content/uploads/2019/08/the-beginning-of-sales-iphone-x-apples-comeback.jpg" views="123"/>
       <FeaturedListings title="Volvo 740 nyskick" image="https://upload.wikimedia.org/wikipedia/commons/0/0c/Volvo_740_vorn.JPG" views="140"/>
       <FeaturedListings title="Elgitarr, flera förstärkare" image="http://www.allmusikverkstan.com/bilder/forstarkare/forstarkare_3.jpg" views="132"/>

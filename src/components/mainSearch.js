@@ -2,7 +2,7 @@ import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
 import ReactDOM from 'react-dom';
 import GetMarketListings from "./getMarketListings";
-import { MenuItem, Button, Select, TextField, Grid, Divider, InputLabel, FormControl } from "@material-ui/core";
+import { Button, TextField, Grid, Divider } from "@material-ui/core";
 import Category from './categoryCard';
 import AreaFilter from './filters/areaFilter';
 
@@ -39,7 +39,7 @@ class MainSearch extends React.Component {
             return;
         } else {
             ReactDOM.render(
-                <GetMarketListings blocket={data.blocket} tradera={data.tradera} />, document.getElementById("items")
+                <GetMarketListings data={data}/>, document.getElementById("items")
 
             )
             console.log("Set the state of items");

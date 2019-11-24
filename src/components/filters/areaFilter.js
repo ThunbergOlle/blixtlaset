@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuItem, Select, Grid, InputLabel, FormControl } from "@material-ui/core";
+import { MenuItem, Select, InputLabel, FormControl } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 
 export default class AreaFilter extends React.Component {

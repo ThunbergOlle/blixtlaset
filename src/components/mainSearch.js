@@ -5,8 +5,8 @@ import GetMarketListings from "./getMarketListings";
 import { Button, TextField, Grid, Divider } from "@material-ui/core";
 import Category from './categoryCard';
 import AreaFilter from './filters/areaFilter';
+import api from './api/apiHandler';
 
-const api = require('./api/apiHandler');
 class MainSearch extends React.Component {
     constructor(props) {
         super(props);
@@ -131,7 +131,7 @@ class MainSearch extends React.Component {
                         </Grid>
                         <Grid item xs={2}>
                             <div style={{ margin: "2% auto", align: "center", marginTop: 26 }}>
-                                <Button variant="contained" style={{ backgroundColor: "#507B00" }} onClick={() => { this.sendApiRequest() }} onTouchEnd={() => { this.sendApiRequest() }}>
+                                <Button variant="contained" style={{ backgroundColor: "#507B00" }} onClick={() => { this.sendApiRequest() }}>
                                     <SearchIcon color="inherit" style={{ color: "white" }} />
                                 </Button>
                             </div>

@@ -2,11 +2,11 @@ import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
 import ReactDOM from 'react-dom';
 import GetMarketListings from "./getMarketListings";
-import { Button, TextField, Grid, Divider } from "@material-ui/core";
+import { Button, TextField, Grid, Divider, Typography } from "@material-ui/core";
 import Category from './categoryCard';
 import AreaFilter from './filters/areaFilter';
 import api from './api/apiHandler';
-
+import OnlyImages from './filters/onlyImages'
 class MainSearch extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ class MainSearch extends React.Component {
             traderaIn: undefined,
             filters: [],
             selectedCategory: undefined,
-
+            onlyImages: false
         }
     }
     onChangeCategory(category) {
@@ -26,6 +26,10 @@ class MainSearch extends React.Component {
     }
     onChangeArea(area) {
         this.setState({ area: area });
+    }
+    onChangeImages(bool) {
+        this.setState({ onlyImages: bool });
+
     }
     changeSearchWord = (event) => {
 
@@ -39,7 +43,7 @@ class MainSearch extends React.Component {
             return;
         } else {
             ReactDOM.render(
-                <GetMarketListings data={data}/>, document.getElementById("items")
+                <GetMarketListings data={data} />, document.getElementById("items")
 
             )
             console.log("Set the state of items");
@@ -48,12 +52,11 @@ class MainSearch extends React.Component {
     }
     render() {
         const isMobile = window.innerWidth <= 500;
-        console.log(isMobile);
         const category = () => {
             if (this.state.selectedCategory !== undefined) return true
             else return false;
         }
-        console.log(category());
+        console.log("only images: ", this.state.onlyImages);
         if (!isMobile) {
             return (
                 <form
@@ -95,12 +98,13 @@ class MainSearch extends React.Component {
                                 </Grid>
                             }
                             {category() &&
-                                <Grid item xs={12} style={{textAlign: 'left'}}>
-                                    <a style={{color: 'green', fontSize: 16, textAlign: "left", cursor: "pointer"}} onClick={() => this.setState({selectedCategory: undefined})}>Tillbaka</a>
-                                    <p>Något för subkategorier här</p>
+                                <Grid item xs={12} style={{ textAlign: 'left' }}>
+                                    <a style={{ color: 'green', fontSize: 16, textAlign: "left", cursor: "pointer" }} onClick={() => this.setState({ selectedCategory: undefined })}>Tillbaka</a>
+                                    <p>Du har valt kategori: {this.state.selectedCategory}</p>
                                 </Grid>
                             }
                             <AreaFilter changeArea={this.onChangeArea.bind(this)} />
+                            <OnlyImages changeOnlyImages={this.onChangeImages.bind(this)} />
                             <Grid item xs={12} style={{ textAlign: "center", alignSelf: "center" }}>
                                 <Divider />
                             </Grid>
@@ -147,7 +151,20 @@ class MainSearch extends React.Component {
                                 <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/2071/2071474.svg" category="Konst" categoryName="Konst"></Category>
                             </Grid>
                         }
-                        <AreaFilter changeArea={this.onChangeArea.bind(this)} />
+                        {category() &&
+                            <Grid item xs={12} style={{ textAlign: 'left' }}>
+                                <a style={{ color: 'green', fontSize: 16, textAlign: "left", cursor: "pointer" }} onClick={() => this.setState({ selectedCategory: undefined })}>Tillbaka</a>
+                                <p>Du har valt kategori: {this.state.selectedCategory}</p>
+                            </Grid>
+                        }
+                        <div style={{textAlign: 'center'}}>
+                            <Divider></Divider>
+                            <p style={{fontSize: 22}}>Filter <br/><em style={{fontSize: 12}}>Använd filter för att optimera din sökning</em></p>
+                            <AreaFilter changeArea={this.onChangeArea.bind(this)} />
+                            <OnlyImages changeOnlyImages={this.onChangeImages.bind(this)} />
+                        </div>
+
+
                         <Grid item xs={12} style={{ textAlign: "center", alignSelf: "center" }}>
                             <Divider />
                         </Grid>

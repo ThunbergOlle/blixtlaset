@@ -33,7 +33,7 @@ class MainSearch extends React.Component {
     }
     async sendApiRequest() {
         console.log(`Sending api request for search term ${this.state.search}`);
-        let data = await api.Search(this.state.search, this.state.area, this.state.selectedCategory);
+        let data = await api(this.state.search, this.state.area, this.state.selectedCategory);
         if (data === undefined) {
             console.log("We did not get a response from the server.");
             return;

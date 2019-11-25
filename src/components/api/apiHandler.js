@@ -1,6 +1,6 @@
 const axios = require('axios');
 const config = require('./apiConfig');
-module.exports.Search = async (word, area, category) => {
+export default async function Search(word, area, category){
     
     let data = await axios.get(`http://${config.host}:${config.port}/api/getlistings?search=${word}&area=${area}&category=${category}`).then(response => {
         return response.data;  

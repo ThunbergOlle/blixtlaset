@@ -37,7 +37,17 @@ class MainSearch extends React.Component {
     }
     async sendApiRequest() {
         console.log(`Sending api request for search term ${this.state.search}`);
-        let data = await api(this.state.search, this.state.area, this.state.selectedCategory);
+        ReactDOM.render(
+            <img src="https://i.imgur.com/tGKBnO0.gif" height="200"/>, document.getElementById("items")
+        )
+        let data = await api(this.state.search, this.state.area, this.state.selectedCategory).catch(err => {
+            ReactDOM.render(
+                <p>⚠️Hoppsan! Något gick fel, vänligen kontakta administratör: {err.toString()} ⚠️<br/>
+                <img src="https://media0.giphy.com/media/qWPyeR6LhQTLO/giphy.gif?cid=790b7611dd2d9415b46411d21a6b1bd8740d4108796bb74d&rid=giphy.gif" alt="gif" height="150"></img>
+                </p>, document.getElementById("items")
+                
+            )  
+        });
         if (data === undefined) {
             console.log("We did not get a response from the server.");
             return;

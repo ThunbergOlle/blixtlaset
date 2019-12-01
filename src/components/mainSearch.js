@@ -71,9 +71,6 @@ class MainSearch extends React.Component {
             return (
                 <form
                     noValidate autoComplete="off">
-                    <p>{this.state.selectedCategory}</p>
-                    <p>{this.state.area}</p>
-
                     <div style={{ width: "50%", margin: "2% auto" }} color="inherit" className="searchIcon">
                         <Grid container spacing={3}>
 

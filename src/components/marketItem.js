@@ -42,6 +42,9 @@ export default class MarketItem extends React.Component {
                             {this.props.company === 'blocket' &&
                                 <img src="https://i.imgur.com/IcUn5Jr.png" alt="company" height="25"></img>
                             }
+                            {this.props.company === 'shpock' &&
+                                <img src="https://i.imgur.com/I8xM3Nh.png" alt="company" height="25"></img>
+                            }
                         </div>
                         <div style={{ display: "inline-block" }}>
                             <p style={{ marginTop: 5, marginBottom: 0 }}><em>{this.state.location}</em></p>
@@ -64,7 +67,15 @@ export default class MarketItem extends React.Component {
                             <img src="https://i.imgur.com/UwtKFEG.png" alt="like_icon" height="25" onClick={() => { this.like() }} id="likeImg" style={{ cursor: 'pointer' }}></img>
                         </div>
                         <div style={{ position: "absolute", bottom: 5, right: 5 }}>
-                            <img src={this.state.company} alt="company" height="25"></img>
+                            {this.props.company === 'tradera' &&
+                                <img src="https://i.imgur.com/y7yj6aD.png" alt="company" height="25"></img>
+                            }
+                            {this.props.company === 'blocket' &&
+                                <img src="https://i.imgur.com/IcUn5Jr.png" alt="company" height="25"></img>
+                            }
+                            {this.props.company === 'shpock' &&
+                                <img src="https://i.imgur.com/I8xM3Nh.png" alt="company" height="25"></img>
+                            }
                         </div>
                         <div style={{ display: "inline-block" }}>
                             <p style={{ marginTop: 5, marginBottom: 0 }}><em>{this.state.location}</em></p>

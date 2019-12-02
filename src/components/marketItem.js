@@ -11,7 +11,8 @@ export default class MarketItem extends React.Component {
             image: this.props.image,
             location: this.props.location,
             company: this.props.company,
-            link: this.props.link
+            link: this.props.link,
+            likedThis: false
         }
 
     }
@@ -33,7 +34,12 @@ export default class MarketItem extends React.Component {
                             <img src={this.state.image} alt="item" height="108" style={{ padding: 0, textAlign: 'center', margin: 'auto' }}></img>
                         </div>
                         <div style={{ position: "absolute", top: 8, right: 10 }}>
-                            <img src="https://i.imgur.com/UwtKFEG.png" alt="like_icon" height="25" onClick={() => { this.like() }} id="likeImg" style={{ cursor: 'pointer' }}></img>
+                            {!this.state.likedThis &&
+                                <img src="https://i.imgur.com/UwtKFEG.png" alt="like_icon" height="25" onClick={() => { if (!this.state.likedThis) this.setState({ likedThis: true }); else this.setState({ likedThis: false }) }} style={{ cursor: 'pointer' }}></img>
+                            }
+                            {this.state.likedThis &&
+                                <img src="https://i.imgur.com/EBSEJhl.png" alt="like_icon" height="25" onClick={() => { if (!this.state.likedThis) this.setState({ likedThis: true }); else this.setState({ likedThis: false }) }} style={{ cursor: 'pointer' }}></img>
+                            }
                         </div>
                         <div style={{ position: "absolute", bottom: 5, right: 5 }}>
                             {this.props.company === 'tradera' &&
@@ -64,7 +70,12 @@ export default class MarketItem extends React.Component {
                             <img src={this.state.image} alt="item" height="108" style={{ padding: 0, textAlign: 'center', margin: '2% auto' }}></img>
                         </div>
                         <div style={{ position: "absolute", top: 8, right: 10 }}>
-                            <img src="https://i.imgur.com/UwtKFEG.png" alt="like_icon" height="25" onClick={() => { this.like() }} id="likeImg" style={{ cursor: 'pointer' }}></img>
+                        {!this.state.likedThis &&
+                                <img src="https://i.imgur.com/UwtKFEG.png" alt="like_icon" height="25" onClick={() => { if (!this.state.likedThis) this.setState({ likedThis: true }); else this.setState({ likedThis: false }) }} style={{ cursor: 'pointer' }}></img>
+                            }
+                            {this.state.likedThis &&
+                                <img src="https://i.imgur.com/EBSEJhl.png" alt="like_icon" height="25" onClick={() => { if (!this.state.likedThis) this.setState({ likedThis: true }); else this.setState({ likedThis: false }) }} style={{ cursor: 'pointer' }}></img>
+                            }
                         </div>
                         <div style={{ position: "absolute", bottom: 5, right: 5 }}>
                             {this.props.company === 'tradera' &&

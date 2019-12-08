@@ -53,10 +53,9 @@ export default class MarketItem extends React.Component {
                             }
                         </div>
                         <div style={{ display: "inline-block" }}>
-                            <p style={{ marginTop: 5, marginBottom: 0 }}><em>{this.state.location}</em></p>
+                            <p></p>
                             <h3 style={{ margin: 0 }}>{this.state.title}</h3>
-                            <p style={{ margin: 0 }}>{this.state.price}</p>
-                            <a onClick={() => { window.open(this.state.link, '_blank') }} style={{ color: 'green', fontSize: 16, textDecorationLine: 'underline', cursor: 'pointer' }}>Visa annons</a>
+                            <p style={{ margin: 5 }}>{this.state.price}</p><a onClick={() => { window.open(this.state.link, '_blank') }} style={{ color: 'green', fontSize: 16, textDecorationLine: 'underline', cursor: 'pointer' }}>Visa annons</a>
                         </div>
                     </CardContent>
                 </Card>
@@ -70,7 +69,7 @@ export default class MarketItem extends React.Component {
                             <img src={this.state.image} alt="item" height="108" style={{ padding: 0, textAlign: 'center', margin: '2% auto' }}></img>
                         </div>
                         <div style={{ position: "absolute", top: 8, right: 10 }}>
-                        {!this.state.likedThis &&
+                            {!this.state.likedThis &&
                                 <img src="https://i.imgur.com/UwtKFEG.png" alt="like_icon" height="25" onClick={() => { if (!this.state.likedThis) this.setState({ likedThis: true }); else this.setState({ likedThis: false }) }} style={{ cursor: 'pointer' }}></img>
                             }
                             {this.state.likedThis &&
@@ -89,9 +88,9 @@ export default class MarketItem extends React.Component {
                             }
                         </div>
                         <div style={{ display: "inline-block" }}>
-                            <p style={{ marginTop: 5, marginBottom: 0 }}><em>{this.state.location}</em></p>
+                            <p></p>
                             <h3 style={{ margin: 0 }}>{this.state.title}</h3>
-                            <p style={{ margin: 0 }}>{this.state.price}</p>
+                            <p style={{ margin: 5 }}>{this.state.price}</p>
                             <a onClick={() => { window.open(this.state.link, '_blank') }} style={{ color: 'green', fontSize: 16, textDecorationLine: 'underline', cursor: 'pointer' }}>Visa annons</a>
                         </div>
                     </CardContent>

@@ -70,11 +70,12 @@ class MainSearch extends React.Component {
         if (!isMobile) {
             return (
                 <form
-                    noValidate autoComplete="off">
-                    <div style={{ width: "50%", margin: "2% auto" }} color="inherit" className="searchIcon">
+                    noValidate autoComplete="off" style={{backgroundColor: "white", width: "60%", textAlign: "center", borderRadius: 20, borderStyle: "line", margin: "2% auto", marginTop: 100}}> 
+                    <div style={{ width: "90%", margin: "2% auto" }} color="inherit" className="searchIcon">
                         <Grid container spacing={3}>
-
                             <Grid item xs={10}>
+                            <h2 style={{display: "block", textAlign: "left"}}>Hitta begagnad produkt</h2>
+
                                 <TextField
                                     id="outlined-helperText"
                                     label="Produktens namn 🔍"
@@ -112,6 +113,7 @@ class MainSearch extends React.Component {
                             }
                             <AreaFilter changeArea={this.onChangeArea.bind(this)} />
                             <OnlyImages changeOnlyImages={this.onChangeImages.bind(this)} />
+                            <Button>Sök</Button>
                             <Grid item xs={12} style={{ textAlign: "center", alignSelf: "center" }}>
                                 <Divider />
                             </Grid>

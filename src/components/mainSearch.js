@@ -2,11 +2,11 @@ import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
 import ReactDOM from 'react-dom';
 import GetMarketListings from "./getMarketListings";
-import { Button, TextField, Grid, Divider, Typography } from "@material-ui/core";
+import { Button, TextField, Grid, Divider, Typography, CircularProgress } from "@material-ui/core";
 import Category from './categoryCard';
 import AreaFilter from './filters/areaFilter';
 import api from './api/apiHandler';
-import OnlyImages from './filters/onlyImages'
+import OnlyImages from './filters/onlyImages';
 class MainSearch extends React.Component {
     constructor(props) {
         super(props);
@@ -38,15 +38,15 @@ class MainSearch extends React.Component {
     async sendApiRequest() {
         console.log(`Sending api request for search term ${this.state.search}`);
         ReactDOM.render(
-            <img src="https://i.imgur.com/tGKBnO0.gif" height="200"/>, document.getElementById("items")
+            <CircularProgress size="10rem" color="#00b300" style={{ color: "#00b300" }} />, document.getElementById("items")
         )
         let data = await api(this.state.search, this.state.area, this.state.selectedCategory).catch(err => {
             ReactDOM.render(
-                <p>⚠️Hoppsan! Något gick fel, vänligen kontakta administratör: {err.toString()} ⚠️<br/>
-                <img src="https://media0.giphy.com/media/qWPyeR6LhQTLO/giphy.gif?cid=790b7611dd2d9415b46411d21a6b1bd8740d4108796bb74d&rid=giphy.gif" alt="gif" height="150"></img>
+                <p>⚠️Hoppsan! Något gick fel, vänligen kontakta administratör: {err.toString()} ⚠️<br />
+                    <img src="https://media0.giphy.com/media/qWPyeR6LhQTLO/giphy.gif?cid=790b7611dd2d9415b46411d21a6b1bd8740d4108796bb74d&rid=giphy.gif" alt="gif" height="150"></img>
                 </p>, document.getElementById("items")
-                
-            )  
+
+            )
         });
         if (data === undefined) {
             console.log("We did not get a response from the server.");
@@ -70,11 +70,12 @@ class MainSearch extends React.Component {
         if (!isMobile) {
             return (
                 <form
-                    noValidate autoComplete="off" style={{backgroundColor: "white", width: "60%", textAlign: "center", borderRadius: 20, borderStyle: "line", margin: "2% auto", marginTop: 100}}> 
+                    noValidate autoComplete="off" style={{ backgroundColor: "white", width: "60%", textAlign: "center", borderRadius: 20, borderStyle: "line", margin: "2% auto", marginTop: 100, height: 480 }}>
                     <div style={{ width: "90%", margin: "2% auto" }} color="inherit" className="searchIcon">
                         <Grid container spacing={3}>
-                            <Grid item xs={10}>
-                            <h2 style={{display: "block", textAlign: "left"}}>Hitta begagnad produkt</h2>
+                            <Grid item xs={12}>
+                                
+                                <h2 style={{ display: "block", textAlign: "left", fontWeight: "lighter" }}>Hitta begagnad produkt</h2>
 
                                 <TextField
                                     id="outlined-helperText"
@@ -86,16 +87,8 @@ class MainSearch extends React.Component {
                                     onChange={this.changeSearchWord.bind(this)}
                                 />
                             </Grid>
-                            <Grid item xs={2}>
-                                <div style={{ margin: "2% auto", align: "center", marginTop: 26 }}>
-                                    <Button variant="contained" style={{ backgroundColor: "#507B00" }} onClick={() => { this.sendApiRequest() }}>
-                                        <SearchIcon color="inherit" style={{ color: "white" }} />
-                                    </Button>
-                                </div>
-                            </Grid>
                             {!category() &&
                                 <Grid item xs={12}>
-                                    <h4 style={{ margin: 0, padding: 0 }}>Välj en kategori</h4>
                                     <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/135/135077.svg" category="leksaker" categoryName="Leksaker"></Category>
                                     <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/173/173231.svg" category="fordon" categoryName="Fordon"></Category>
                                     <Category changeLink={this.onChangeCategory.bind(this)} image="https://image.flaticon.com/icons/svg/1169/1169382.svg" category="kläder" categoryName="Kläder"></Category>
@@ -113,13 +106,13 @@ class MainSearch extends React.Component {
                             }
                             <AreaFilter changeArea={this.onChangeArea.bind(this)} />
                             <OnlyImages changeOnlyImages={this.onChangeImages.bind(this)} />
-                            <Button>Sök</Button>
+
+                            <Button style={{ width: "100%", marginTop: 20, backgroundColor: "#00b300", color: "white" }} onClick={() => { this.sendApiRequest() }}>Sök</Button>
                             <Grid item xs={12} style={{ textAlign: "center", alignSelf: "center" }}>
                                 <Divider />
                             </Grid>
                         </Grid>
                     </div>
-
                 </form>
             )
         } else return (
@@ -166,9 +159,9 @@ class MainSearch extends React.Component {
                                 <p>Du har valt kategori: {this.state.selectedCategory}</p>
                             </Grid>
                         }
-                        <div style={{textAlign: 'center'}}>
+                        <div style={{ textAlign: 'center' }}>
                             <Divider></Divider>
-                            <p style={{fontSize: 22}}>Filter <br/><em style={{fontSize: 12}}>Använd filter för att optimera din sökning</em></p>
+                            <p style={{ fontSize: 22 }}>Filter <br /><em style={{ fontSize: 12 }}>Använd filter för att optimera din sökning</em></p>
                             <AreaFilter changeArea={this.onChangeArea.bind(this)} />
                             <OnlyImages changeOnlyImages={this.onChangeImages.bind(this)} />
                         </div>

@@ -16,7 +16,7 @@ export default class Category extends React.Component{
         const isMobile = window.innerWidth <= 500;
         if(!isMobile){
             return(
-                <div style={{width: 70, height: 70, cursor: "pointer", borderRadius: "15px", display: "inline-block", backgroundColor: "#DCDCDC", margin: 8}} onClick={this.onChangeLink.bind(this)}>
+                <div style={{width: 70, height: 70, cursor: "pointer", borderRadius: "15px", display: "inline-block", backgroundColor: "white", margin: 8}} onClick={this.onChangeLink.bind(this)}>
                     <div style={{margin: "2% auto", marginTop: "15%"}}>
                      <img src={this.state.image} alt="leksaker" style={{maxWidth: "70%", maxHeight: "70%"}}></img>
                      <p>{this.props.categoryName}</p>

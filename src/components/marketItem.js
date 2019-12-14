@@ -30,8 +30,8 @@ export default class MarketItem extends React.Component {
             return (
                 <Card style={{ width: 600, height: 108, display: "inline-block", margin: 10, position: "relative" }}>
                     <CardContent style={{ margin: 0, padding: 0 }}>
-                        <div className="imageDiv" style={{ height: "100%", width: 96, padding: 0, margin: 0, display: "inline-block", float: "left", textAlign: "center", alignContent: "center" }}>
-                            <img src={this.state.image} alt="item" height="108" style={{ padding: 0, textAlign: 'center', margin: 'auto' }}></img>
+                        <div className="imageDiv" style={{ height: "100%", width: 96, padding: 0, margin: 0, maxWidth: 160, display: "inline-block", float: "left", textAlign: "center", alignContent: "center" }}>
+                            <img src={this.state.image} alt="item" height="108" style={{ padding: 0, textAlign: 'center', margin: 'auto', maxWidth: 160}} ></img>
                         </div>
                         <div style={{ position: "absolute", top: 8, right: 10 }}>
                             {!this.state.likedThis &&

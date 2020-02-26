@@ -2,7 +2,7 @@ import React from "react";
 import SearchIcon from '@material-ui/icons/Search';
 import ReactDOM from 'react-dom';
 import GetMarketListings from "./getMarketListings";
-import { Button, TextField, Grid, Divider, Typography, CircularProgress } from "@material-ui/core";
+import { Button, TextField, Grid, Divider, CircularProgress } from "@material-ui/core";
 import Category from './categoryCard';
 import AreaFilter from './filters/areaFilter';
 import api from './api/apiHandler';

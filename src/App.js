@@ -5,7 +5,6 @@ import MainSearch from './components/mainSearch';
 import MarketItem from "./components/marketItem";
 import './components/category.module.css';
 import FeaturedListings from './components/featuredListings';
-import zIndex from '@material-ui/core/styles/zIndex';
 function App() {
   const isMobile = window.innerWidth <= 500;
 
